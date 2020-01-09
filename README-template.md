@@ -1,29 +1,26 @@
-# LAB - 
+# LAB - 04
 
-## Project Name
+## Data Modeling
 
-### Author: Student/Group Name
+### Author: David Vloedman
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* [travis](http://xyz.com)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+* [submission PR](https://github.com/david-vloedman-401-advanced-javascript/401-lab-04/pull/1)
+* [travis](https://www.travis-ci.com/david-vloedman-401-advanced-javascript/401-lab-04)
+
 
 #### Documentation
-* [api docs](http://xyz.com/api-docs) (API servers)
-* JSDoc Comment Required for all modules and functions in all .js files
+
+* [JSDoc Index](./docs/index.html)
 
 ### Setup
-#### `.env` requirements (where applicable)
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
 
-#### How to initialize/run your server app (where applicable)
-* e.g. `npm start`
+npm install
+
   
 #### Tests
-* How do you run tests?
+
+npm test
 
 #### UML
 Link to an image of the UML for your application and response to events
