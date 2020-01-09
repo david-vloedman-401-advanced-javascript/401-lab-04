@@ -23,4 +23,5 @@ npm install
 npm test
 
 #### UML
-Link to an image of the UML for your application and response to events
+
+![](./assets/lab-04.png)
