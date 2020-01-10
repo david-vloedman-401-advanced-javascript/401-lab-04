@@ -1,4 +1,5 @@
 const Categories = require('../categories/categories.js');
+const validaator = require('../../lib/validatorClass');
 
 describe('Categories Model', () => {
 
@@ -32,4 +33,25 @@ describe('Categories Model', () => {
       });
   });
 
+  it('can update() a category', ()=>{
+    let obj = { name: 'Test Category'};
+    return categories.create(obj)
+      .then(data => {
+        return categories.update('name', 'Best Category').then(record => {
+          expect(record).toEqual('Best Category');
+        });
+      });    
+  });
+
+
+  it('can delete() a category', () => {
+    let obj = { name: 'Test Category' };
+    return categories.create(obj).then(data => {
+      return categories.delete('name').then(record => {
+        expect(record).toBeUndefined();
+      });
+    });
+  });
+
+  if('cannot update a record that does not schema)
 });
