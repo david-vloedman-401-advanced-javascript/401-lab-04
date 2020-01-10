@@ -20,7 +20,7 @@ class Model {
       this.database.push(record);
       return Promise.resolve(record);
     }   
-    return Promise.reject('Cannot save invalid object');
+    return Promise.reject('Failed Validation');
   }
 
   update(id, record) {
