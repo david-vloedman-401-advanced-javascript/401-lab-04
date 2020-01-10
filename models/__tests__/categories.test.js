@@ -70,6 +70,7 @@ describe('Categories Model', () => {
       expect(err).toEqual('Failed Validation');
     });  
   });
+  
 });
 
 let str = 'yes';

@@ -5,7 +5,7 @@ const validator = require('../lib/validatorClass');
 
 class Model {
 
-  constructor() {    
+  constructor() {        
     this.database = [];
   }
 
