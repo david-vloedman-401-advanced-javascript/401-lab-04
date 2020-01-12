@@ -50,9 +50,9 @@ class FileModel {
   update(id, record) {
     if (validator.isValid(this.schema, { id: record })) {
       return readFile(this.path)
-      .then(data => {
-        return Promise.resolve(record);
-      });
+        .then(data => {
+          return Promise.resolve(record);
+        });
       
     }
     return Promise.reject('Failed Validation');
