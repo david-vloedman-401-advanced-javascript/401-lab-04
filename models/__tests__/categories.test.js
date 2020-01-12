@@ -1,6 +1,7 @@
 const faker = require('faker');
 const Categories = require('../categories/categories.js');
 const validator = require('../../lib/validatorClass');
+const Product = require('../products/products');
 
 describe('Categories Model', () => {
 
@@ -20,7 +21,7 @@ describe('Categories Model', () => {
       })
       .catch(e => console.error('ERR', e));
   });
-
+ 
   it('can get() a category', () => {
     let obj = { name: 'Test Category' };
     return categories.create(obj)
@@ -70,7 +71,73 @@ describe('Categories Model', () => {
       expect(err).toEqual('Failed Validation');
     });  
   });
-  
+
+});
+
+
+xdescribe('Products Model', () => {
+  let products;
+
+  beforeEach(() => {
+    products = new Product();
+  });
+
+  it('can post() a new category', () => {
+    let obj = { name: 'Test Category' };
+    return products
+      .create(obj)
+      .then(record => {
+        Object.keys(obj).forEach(key => {
+          expect(record[key]).toEqual(obj[key]);
+        });
+      })
+      .catch(e => console.error('ERR', e));
+  });
+
+  it('can get() a category', () => {
+    let obj = { name: 'Test Category' };
+    return products.create(obj).then(record => {
+      return products.get(record._id).then(category => {
+        Object.keys(obj).forEach(key => {
+          expect(category[0][key]).toEqual(obj[key]);
+        });
+      });
+    });
+  });
+
+  it('can update() a category', () => {
+    let obj = { name: 'Test Category' };
+    return products.create(obj).then(data => {
+      return products.update('name', 'Best Category').then(record => {
+        expect(record).toEqual('Best Category');
+      });
+    });
+  });
+
+  it('can delete() a category', () => {
+    let obj = { name: 'Test Category' };
+    return products.create(obj).then(data => {
+      return products.delete('name').then(record => {
+        expect(record).toBeUndefined();
+      });
+    });
+  });
+
+  it('cannot update a record that does not validate against schema', () => {
+    let obj = 'test';
+    return products.create({ test: 'test' }).then(data => {
+      return products.update(obj).catch(err => {
+        expect(err).toEqual('Failed Validation');
+      });
+    });
+  });
+
+  it('cannot add a record that does not validate against schema', () => {
+    let obj = 'test';
+    return products.create({ test: 'test' }).catch(err => {
+      expect(err).toEqual('Failed Validation');
+    });
+  });
 });
 
 let str = 'yes';

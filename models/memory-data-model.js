@@ -3,10 +3,11 @@
 const uuid = require('uuid/v4');
 const validator = require('../lib/validatorClass');
 
-class Model {
+class MemoryModel {
 
-  constructor() {        
+  constructor(schema) {        
     this.database = [];
+    this.schema = schema;
   }
 
   get(id) {
@@ -41,4 +42,4 @@ class Model {
 
 }
 
-module.exports = Model;
+module.exports = MemoryModel;
